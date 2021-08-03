@@ -4,8 +4,8 @@ const path = require('path');
 const app = express();
 
 
-//Set static path
-// app.use(express.static(path.join(__dirname, 'public')));
+// Set static path
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
@@ -16,6 +16,10 @@ app.get('/about', (req, res) => {
 })
 
 app.get('/users/:name', (req, res) => {
-    let user = req.param.nameres.send()
+    let user = req.params.name
     res.send('<h1>'+user+'</h1>');
+})
+
+app.listen(3000, () => {
+    console.log('listening on port 3000')
 })
